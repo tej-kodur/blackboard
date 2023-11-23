@@ -1,0 +1,399 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+
+header {
+    background-color: #D8EFF9; /* Adjust to the exact color */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    /* width: 1535px;
+    height: 112px; */
+    flex-shrink: 0;
+    /* background-color: #f4f4f4;
+    padding: 1rem;
+    text-align: center; */
+}
+
+.logo-container {
+    display: flex; /* Establish flex container */
+    align-items: center; /* Align children vertically in the center */
+    justify-content: flex-start; /* Align children to the start of the container */
+}
+
+.logo {
+    width: 50px; /* Adjust to the size of your logo */
+    height: auto; /* Maintain aspect ratio of the image */
+    /* 'align-items' is not needed here as it's for flex containers */
+}
+
+figcaption {
+    /* width: 120px; Remove this if you want the figcaption to size with content */
+    height: auto;
+    display: flex;
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    font-size: 1rem;
+    margin-left: 10px; /* Add space between logo and caption */
+}
+
+
+/* #brand {
+    font-size: 1.0em;
+    margin-bottom: 0.5em;
+} */
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+nav a.active {
+    color: #007bff;
+}
+
+#search-bar {
+    text-align: center; /* Centers the search bar container */
+    padding: 1rem; /* Adds padding around the search bar */
+}
+#search-bar input[type="text"] {
+    width: 100%;
+    max-width: 500px; /* Adjust this value to set the desired width */
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: auto; /* These two margin settings */
+    margin-right: auto; /* center the search bar */
+    border: none;
+    border-radius: 5px;
+    /* box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); */
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    text-align: center;
+    
+    background-color: #D9D9D9;
+}
+
+main {
+    flex: 1 0 auto; /* Flex grow, no shrink, auto basis */
+    padding: 1rem;
+    background-color: #fff;
+}
+
+#filter-section {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.filter-button {
+    background: none;
+    border: none;
+    margin-right: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0 50px;
+}
+
+.article-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: #D8EFF9;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This will center the button horizontally */
+    text-align: center; /* This will center the text within the button */
+}
+
+.article-card img {
+    width: 100%;
+    height: auto;
+}
+
+.article-card h3 {
+    padding: 0.5em;
+}
+
+.article-card p {
+    padding: 0 0.5em 0.5em;
+    font-size: 0.9em;
+    color: #666;
+}
+
+#pagination {
+    text-align: center;
+    padding: 1rem;
+}
+
+footer {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 1rem;
+    
+    bottom: 0;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    #articles {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Add this to your existing CSS */
+
+.tags {
+    padding: 0.5em;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #e1e1e1;
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin-right: 5px;
+    font-size: 0.8em;
+}
+/* Add to your existing CSS */
+
+#suggestions {
+    position: absolute;
+    left: 24%;;
+    border: 1px solid #ddd;
+    border-top: none;
+    width: calc(100% - 760px);
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #D9D9D9;
+    /* box-shadow: 0px 4px 5px rgba(0,0,0,0.1); */
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    z-index: 1000;
+    margin-left: 80px;
+}
+
+#suggestions div {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+#suggestions div:hover {
+    background-color: #365843;
+    color: #F0FFFE;
+}
+
+
+#filters {
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+}
+
+.filter-category {
+    margin-bottom: 20px; /* Adds space between filter categories */
+}
+
+.filter-category h3 {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* .filter-category label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+} */
+
+.filter-category label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+filter-category input[type="checkbox"] {
+    margin-right: 10px;
+    /* margin-right: 5px; */
+}
+
+/* You can style your checkboxes to look better as needed */
+
+#filterButton {
+    background-color: #D9D9D9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    cursor: pointer;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+#filterButton:hover {
+    background-color: #365843; /* Change color on hover */
+    color: #F0FFFE;
+}
+
+.filter-dropdown {
+    display: none;
+    position: absolute;
+    background-color: #D9D9D9;
+    border: 1px solid #ddd;
+    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); */
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    z-index: 1;
+}
+
+
+/* Style for each column */
+.filter-column {
+    display: column;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-between;
+    /* width: 50%; Assuming you want two equal columns */
+}
+
+
+
+
+/* Show the dropdown when the filter button is active */
+#filterButton.active + .filter-dropdown {
+    display: block;
+}
+#pagination a.active {
+    font-weight: bold;
+    color: #333;
+}
+
+
+.read-more-btn {
+    
+    padding: 10px;
+    background-color: #6880A5;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease; /* Smooth transition for color change */
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: block; /* Change display to block for margins to take effect */
+    margin: 10px auto; /* Top and bottom margins are 10px, left and right are auto */
+}
+
+
+
+.read-more-btn:hover {
+    background-color: #0056b3; /* Darker shade for hover state */
+}
+
+
+
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    font-size: 0.9em; /* Adjust size as necessary */
+}
+
+#pagination a {
+    text-decoration: none;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#pagination a:hover {
+    background-color: #e4e4e4;
+    color: #000;
+}
+
+#pagination a.active {
+    background-color: #007bff;
+    color: white;
+}
+
+#pagination .pagination-previous, #pagination .pagination-next {
+    font-weight: bold;
+}
+
+
+
+
+
+.footer {
+    background-color: #D8EFF9;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    padding: 0 20px;
+    box-sizing: border-box;
+    min-width: 160px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-column p,
+.footer-column a {
+    font-size: 14px;
+    color: inherit;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive behavior */
+@media (max-width: 600px) {
+    .footer-column {
+        flex-basis: 100%;
+        padding: 10px 0;
+        text-align: center; /* Center the content on small screens */
+    }
+}
