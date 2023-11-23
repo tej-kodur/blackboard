@@ -14,18 +14,24 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             const articles = data.articles;
-
-            if (!isNaN(articleIndex) && articleIndex >= 0 && articleIndex < articles.length) {
-                const articleData = articles[articleIndex];
-                document.getElementById('article-title').textContent = articleData.title;
-                document.getElementById('article-author').textContent = `Author: ${articleData.tags.author}`;
-                document.getElementById('article-date').textContent = `Date: ${articleData.tags.date}`;
-                // Set the content for other elements...
-                document.getElementById('article-body').innerHTML = articleData.summary; // If summary contains HTML, use innerHTML
-            } else {
-                console.error('Article index is out of bounds or not defined');
-                // Handle error...
-            }}
+            const articleData = articles[articleIndex];
+            document.getElementById('article-title').textContent = articleData.title;
+            document.getElementById('article-author').textContent = `Author: ${articleData.tags.author}`;
+            document.getElementById('article-date').textContent = `Date: ${articleData.tags.date}`;
+            // Set the content for other elements...
+            document.getElementById('article-body').innerHTML = articleData.summary; // If summary contains HTML, use innerHTML
+        });
+            // if (!isNaN(articleIndex) && articleIndex >= 0 && articleIndex < articles.length) {
+            //     const articleData = articles[articleIndex];
+            //     document.getElementById('article-title').textContent = articleData.title;
+            //     document.getElementById('article-author').textContent = `Author: ${articleData.tags.author}`;
+            //     document.getElementById('article-date').textContent = `Date: ${articleData.tags.date}`;
+            //     // Set the content for other elements...
+            //     document.getElementById('article-body').innerHTML = articleData.summary; // If summary contains HTML, use innerHTML
+            // } else {
+            //     console.error('Article index is out of bounds or not defined');
+            //     // Handle error...
+            // }}
 });
 
 // document.addEventListener('DOMContentLoaded', function() {
